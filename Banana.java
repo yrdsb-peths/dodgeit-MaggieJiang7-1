@@ -14,11 +14,18 @@ public class Banana extends Actor
      */
     public void act()
     {
-        move(-3);
+        move(-10);
         
         if (getX() <=0)
         {
             resetBanana();
+        }
+        
+        if (isTouching(Hero.class))
+        {
+            SadFace sadFace =new SadFace();
+            getWorld().addObject(sadFace, 300, 200);
+            getWorld().removeObject(this);
         }
     }
     

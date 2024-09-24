@@ -9,11 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Hero extends Actor
 {
     boolean atTop = true;
+    boolean keyLast = false;
     public void act()
-    {
-        if (Greenfoot.mouseClicked(null))
+    {   
+        if (Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space") && keyLast == false)
         {
             atTop = !atTop;
+            keyLast = true;
         }
         
         if (atTop){
